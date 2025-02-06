@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            flex-direction: column;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 600px;
+        }
+
+        h1 {
+            color: #ff4d4d;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .gif {
+            width: 80%;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        #yes {
+            background-color: #ff6666;
+            transition: transform 0.2s ease;
+        }
+
+        #no {
+            background-color: #e0e0e0;
+            transition: background-color 0.3s ease;
+        }
+
+        #yes:active {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Will You Be My Valentine?</h1>
+        <img src="https://media.giphy.com/media/3o6fJ5WgwNR24Uxxig/giphy.gif" alt="Valentine GIF" class="gif">
+        <div>
+            <button id="yes">Yes</button>
+            <button id="no">No</button>
+        </div>
+    </div>
+
+    <script>
+        const yesButton = document.getElementById("yes");
+        const noButton = document.getElementById("no");
+
+        yesButton.addEventListener("click", () => {
+            alert("Yay! You're my Valentine! 💖");
+        });
+
+        let noClickCount = 0;
+        noButton.addEventListener("click", () => {
+            noClickCount++;
+            if (noClickCount === 1) {
+                noButton.textContent = "Are you sure? 😟";
+            } else if (noClickCount === 2) {
+                noButton.textContent = "Please say Yes! 😢";
+            } else if (noClickCount === 3) {
+                noButton.textContent = "I promise I'm awesome! 😎";
+            } else {
+                noButton.textContent = "Please? 😭";
+            }
+
+            yesButton.style.transform = `scale(${1 + 0.1 * noClickCount})`; // Increases button size after each click
+        });
+    </script>
+</body>
+</html>
