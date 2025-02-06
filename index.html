@@ -14,6 +14,7 @@
             font-family: Arial, sans-serif;
             background-color: #f1f1f1;
             flex-direction: column;
+            overflow: hidden;
         }
 
         .container {
@@ -55,36 +56,34 @@
         #yes:active {
             transform: scale(1.1);
         }
+
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Vrittiii, will You Be My Valentine? <span style="color: #ff6666; font-style: italic;">For the Prettiest Devil 😈</span></h1>
-        <img src="https://media1.tenor.com/m/15_azEQg5YwAAAAC/happy-dog-dog.gif" alt="Valentine GIF" class="gif">
+        <img id="gifImage" src="https://media1.tenor.com/m/15_azEQg5YwAAAAC/happy-dog-dog.gif" alt="Valentine GIF" class="gif">
         <div>
             <button id="yes">Yes</button>
             <button id="no">No</button>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti"></script> <!-- Confetti CDN -->
+
     <script>
         const yesButton = document.getElementById("yes");
         const noButton = document.getElementById("no");
+        const gifImage = document.getElementById("gifImage");
 
-        let yesClickCount = 0;  // Counter for Yes button
-        let noClickCount = 0;   // Counter for No button
-        const specialMessage = document.getElementById("specialMessage");
+        let noClickCount = 0;
 
-        yesButton.addEventListener("click", () => {
-            yesClickCount++; // Increment Yes button counter
-            alert("Yay! You're my Valentine! 💖");
-
-            // Increase the size of the Yes button each time it is clicked
-            yesButton.style.transform = `scale(${1 + 0.1 * yesClickCount})`;
-        });
-
+        // Increase the size of the Yes button when No button is clicked
         noButton.addEventListener("click", () => {
-            noClickCount++; // Increment No button counter
+            noClickCount++;
+
+            // Increase the size of the Yes button with each click on No
+            yesButton.style.transform = `scale(${1 + 0.1 * noClickCount})`;
 
             // Handling text change for the "No" button based on the click count
             if (noClickCount === 1) {
@@ -110,17 +109,23 @@
             } else {
                 noButton.textContent = "Okay, you're talking to my ghost now. How enticing.";
             }
-
-            // If "No" is clicked more than 10 times, show the "prettiest devil" message
-            if (noClickCount >= 12) {
-                specialMessage.textContent = "For the prettiest devil 😈. You win my heart!";
-            } else {
-                specialMessage.textContent = ""; // Clear the special message after a certain number of clicks
-            }
-
-            // Increase the size of the No button as well (optional)
-            noButton.style.transform = `scale(${1 + 0.05 * noClickCount})`; // Smaller scale increment for No button
         });
+
+        // Change the GIF and display confetti when Yes is clicked
+        yesButton.addEventListener("click", () => {
+            // Show a new GIF
+            gifImage.src = "https://media.tenor.com/d9b6xR6qSOIAAAAC/valentines-day-heart.gif"; // New gif for celebration
+
+            // Trigger confetti
+            confetti({
+                particleCount: 100,
+                spread: 90,
+                origin: { x: 0.5, y: 0.5 }
+            });
+
+            alert("Yay! You're my Valentine! 💖");
+        });
+
     </script>
 </body>
 </html>
