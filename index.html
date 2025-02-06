@@ -59,7 +59,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Vrittiii, will You Be My Valentine?</h1>
+        <h1>Vrittiii, will You Be My Valentine? <span style="color: #ff6666; font-style: italic;">For the Prettiest Devil 😈</span></h1>
         <img src="https://media1.tenor.com/m/15_azEQg5YwAAAAC/happy-dog-dog.gif" alt="Valentine GIF" class="gif">
         <div>
             <button id="yes">Yes</button>
@@ -70,6 +70,7 @@
     <script>
         const yesButton = document.getElementById("yes");
         const noButton = document.getElementById("no");
+        const specialMessage = document.getElementById("specialMessage");
 
         yesButton.addEventListener("click", () => {
             alert("Yay! You're my Valentine! 💖");
@@ -79,6 +80,7 @@
         noButton.addEventListener("click", () => {
             noClickCount++;
 
+            // Handling text change for the "No" button based on the click count
             if (noClickCount === 1) {
                 noButton.textContent = "Are you sure? 😟";
             } else if (noClickCount === 2) {
@@ -101,6 +103,13 @@
                 noButton.textContent = "UUUGGGHHHHHHHH";
             } else {
                 noButton.textContent = "Okay, you're talking to my ghost now. How enticing.";
+            }
+
+            // If "No" is clicked more than 10 times, show the "prettiest devil" message
+            if (noClickCount >= 12) {
+                specialMessage.textContent = "For the prettiest devil 😈. You win my heart!";
+            } else {
+                specialMessage.textContent = ""; // Clear the special message after a certain number of clicks
             }
 
             yesButton.style.transform = `scale(${1 + 0.1 * noClickCount})`; // Increases button size after each click
