@@ -70,15 +70,21 @@
     <script>
         const yesButton = document.getElementById("yes");
         const noButton = document.getElementById("no");
+
+        let yesClickCount = 0;  // Counter for Yes button
+        let noClickCount = 0;   // Counter for No button
         const specialMessage = document.getElementById("specialMessage");
 
         yesButton.addEventListener("click", () => {
+            yesClickCount++; // Increment Yes button counter
             alert("Yay! You're my Valentine! 💖");
+
+            // Increase the size of the Yes button each time it is clicked
+            yesButton.style.transform = `scale(${1 + 0.1 * yesClickCount})`;
         });
 
-        let noClickCount = 0;
         noButton.addEventListener("click", () => {
-            noClickCount++;
+            noClickCount++; // Increment No button counter
 
             // Handling text change for the "No" button based on the click count
             if (noClickCount === 1) {
@@ -112,7 +118,8 @@
                 specialMessage.textContent = ""; // Clear the special message after a certain number of clicks
             }
 
-            yesButton.style.transform = `scale(${1 + 0.1 * noClickCount})`; // Increases button size after each click
+            // Increase the size of the No button as well (optional)
+            noButton.style.transform = `scale(${1 + 0.05 * noClickCount})`; // Smaller scale increment for No button
         });
     </script>
 </body>
