@@ -78,31 +78,30 @@
         let noClickCount = 0;
         noButton.addEventListener("click", () => {
             noClickCount++;
+
             if (noClickCount === 1) {
-    noButton.textContent = "Are you sure? 😟";
-} else if (noClickCount === 2) {
-    noButton.textContent = "Please say Yes! 😢";
-} else if (noClickCount === 3) {
-    noButton.textContent = "What if I asked really nicely? ";
-} else {
-    noButton.textContent = "Please? 😭";
-} else if (noClickCount === 3) {
-    noButton.textContent = "Pretty please ";
-} else {
-    noButton.textContent = "What about a momo date?";
-} else if (noClickCount === 3) {
-    noButton.textContent = "What about bobaaaaa? ";
-} else {
-    noButton.textContent = "PLEASEEEEE SHAWTYYYY";
-} else if (noClickCount === 3) {
-    noButton.textContent = "But :*( ";
-} else {
-    noButton.textContent = "Pchhh. You're really making me work for it, huh?";
-} else if (noClickCount === 3) {
-    noButton.textContent = "UUUGGGHHHHHHHH";
-} else {
-    noButton.textContent = "Okay, you're talking to my ghost now. How enticing.";
-}            
+                noButton.textContent = "Are you sure? 😟";
+            } else if (noClickCount === 2) {
+                noButton.textContent = "Please say Yes! 😢";
+            } else if (noClickCount === 3) {
+                noButton.textContent = "What if I asked really nicely? ";
+            } else if (noClickCount === 4) {
+                noButton.textContent = "Pretty please ";
+            } else if (noClickCount === 5) {
+                noButton.textContent = "What about a momo date?";
+            } else if (noClickCount === 6) {
+                noButton.textContent = "What about bobaaaaa? ";
+            } else if (noClickCount === 7) {
+                noButton.textContent = "PLEASEEEEE SHAWTYYYY";
+            } else if (noClickCount === 8) {
+                noButton.textContent = "But :*( ";
+            } else if (noClickCount === 9) {
+                noButton.textContent = "Pchhh. You're really making me work for it, huh?";
+            } else if (noClickCount === 10) {
+                noButton.textContent = "UUUGGGHHHHHHHH";
+            } else {
+                noButton.textContent = "Okay, you're talking to my ghost now. How enticing.";
+            }
 
             yesButton.style.transform = `scale(${1 + 0.1 * noClickCount})`; // Increases button size after each click
         });
