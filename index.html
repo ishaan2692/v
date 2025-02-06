@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Will You Be My Valentine?</title>
+    <title>Vrittiii, will You Be My Valentine?</title>
     <style>
         body {
             display: flex;
@@ -59,8 +59,8 @@
 </head>
 <body>
     <div class="container">
-        <h1>Will You Be My Valentine?</h1>
-        <img src="https://media.giphy.com/media/3o6fJ5WgwNR24Uxxig/giphy.gif" alt="Valentine GIF" class="gif">
+        <h1>Vrittiii, will You Be My Valentine?</h1>
+        <img src="https://media1.tenor.com/m/15_azEQg5YwAAAAC/happy-dog-dog.gif" alt="Valentine GIF" class="gif">
         <div>
             <button id="yes">Yes</button>
             <button id="no">No</button>
@@ -79,14 +79,30 @@
         noButton.addEventListener("click", () => {
             noClickCount++;
             if (noClickCount === 1) {
-                noButton.textContent = "Are you sure? 😟";
-            } else if (noClickCount === 2) {
-                noButton.textContent = "Please say Yes! 😢";
-            } else if (noClickCount === 3) {
-                noButton.textContent = "I promise I'm awesome! 😎";
-            } else {
-                noButton.textContent = "Please? 😭";
-            }
+    noButton.textContent = "Are you sure? 😟";
+} else if (noClickCount === 2) {
+    noButton.textContent = "Please say Yes! 😢";
+} else if (noClickCount === 3) {
+    noButton.textContent = "What if I asked really nicely? ";
+} else {
+    noButton.textContent = "Please? 😭";
+} else if (noClickCount === 3) {
+    noButton.textContent = "Pretty please ";
+} else {
+    noButton.textContent = "What about a momo date?";
+} else if (noClickCount === 3) {
+    noButton.textContent = "What about bobaaaaa? ";
+} else {
+    noButton.textContent = "PLEASEEEEE SHAWTYYYY";
+} else if (noClickCount === 3) {
+    noButton.textContent = "But :*( ";
+} else {
+    noButton.textContent = "Pchhh. You're really making me work for it, huh?";
+} else if (noClickCount === 3) {
+    noButton.textContent = "UUUGGGHHHHHHHH";
+} else {
+    noButton.textContent = "Okay, you're talking to my ghost now. How enticing.";
+}            
 
             yesButton.style.transform = `scale(${1 + 0.1 * noClickCount})`; // Increases button size after each click
         });
